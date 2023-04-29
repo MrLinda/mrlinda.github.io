@@ -199,6 +199,59 @@
 
     
     
+        <article class="kratos-hentry kratos-entry-border-new clearfix" itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-status">
+                
+                    <i class="fa fa-refresh"></i>
+                
+                <div class="kratos-status-inner">
+                    <div class="kratos-status-content" itemprop="articleBody">
+                        
+                            <p>title: 文章标题<br>date: 2023-04-29 15:31:36<br>categories: Demo<br>tags:</p>
+<ul>
+<li>Tag0</li>
+<li>Tag1</li>
+<li>Tag2<br>sticky: 100<br>pic:<br>comments: true<br>toc: true<br>expire: true<br>only:</li>
+<li>home</li>
+<li>category</li>
+<li>tag</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Key_Proc</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">static</span> <span class="type">uint16_t</span> b1_sum = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//自己添加的防抖处理（10ms检测一次按键状态）</span></span><br><span class="line">    <span class="keyword">if</span>(uwTick - KEY_latestTime &lt;<span class="number">10</span>) <span class="keyword">return</span>;</span><br><span class="line">	KEY_latestTime = uwTick;</span><br><span class="line">    <span class="comment">//------------------------</span></span><br><span class="line">	<span class="keyword">if</span>(KB1 == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		b1_sum++;</span><br><span class="line">        <span class="keyword">if</span>(b1_sum == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            KB1_DCLK++;</span><br><span class="line">            <span class="comment">//双击</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(KB1 == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b1_sum &gt;= <span class="number">1</span> &amp;&amp; b1_sum &lt; <span class="number">10</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//短按</span></span><br><span class="line">            KB1_ShortClick_Sum++;</span><br><span class="line">            b1_sum = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(b1_sum &gt;= <span class="number">10</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            b1_sum = <span class="number">0</span>;</span><br><span class="line">            <span class="comment">//长按</span></span><br><span class="line">            KB1_LongClick_Sum++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                        
+                    </div>
+                </div>
+            </div>
+            
+                <footer class="kratos-post-meta-new">
+                    <span class="pull-left">
+                        <time datetime="2023-04-29T14:37:44.455Z" itemprop="datePublished">
+                            <a><i class="fa fa-calendar"></i> 2023-04-29</a>
+                        </time>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </span>
+                    
+                    
+                        <span class="pull-right">
+                            <a class="read-more" href="/2023/04/29/code-test/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    
+
+                </footer>
+            
+        </article>
+    
+
+    
+    
         <article class="kratos-hentry clearfix" itemscope itemtype="https://schema.org/Article">
             <div class="kratos-entry-border-new clearfix">
                 
@@ -289,7 +342,7 @@
                 文章
             </span>
             <span class="count">
-                1
+                2
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -322,6 +375,9 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
         
           
           
