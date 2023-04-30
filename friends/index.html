@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
   
-  <title>test | LXX&#39;s blog</title>
+  <title>好伙伴们 | LXX&#39;s blog</title>
   
   <meta name="author" content="Lu Xiaoxiao" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -17,16 +17,14 @@
   
     <meta name="keywords" content="" />
   
-  <meta name="description" content="1234567891011121314151617181920212223242526272829303132void Key_Proc()&amp;#123;	static uint16_t b1_sum &#x3D; 0;    &#x2F;&#x2F;自己添加的防抖处理（10ms检测一次按键状态）    if(uwTick - KEY_latestTime &lt;10) return;	KEY_latestTime &#x3D; uwT">
+  <meta name="description" content="好伙伴们在哪里~">
 <meta property="og:type" content="website">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://blog.luxiaoxiao.work/test/index.html">
+<meta property="og:title" content="好伙伴们">
+<meta property="og:url" content="http://blog.luxiaoxiao.work/friends/index.html">
 <meta property="og:site_name" content="LXX&#39;s blog">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132void Key_Proc()&amp;#123;	static uint16_t b1_sum &#x3D; 0;    &#x2F;&#x2F;自己添加的防抖处理（10ms检测一次按键状态）    if(uwTick - KEY_latestTime &lt;10) return;	KEY_latestTime &#x3D; uwT">
+<meta property="og:description" content="好伙伴们在哪里~">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
-<meta property="article:published_time" content="2023-04-30T02:42:20.000Z">
-<meta property="article:modified_time" content="2023-04-30T02:42:47.309Z">
 <meta property="article:author" content="Lu Xiaoxiao">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
@@ -197,45 +195,36 @@
         
 
             <article itemscope itemtype="https://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.luxiaoxiao.work/test/index.html">
+    <link itemprop="mainEntityOfPage" href="">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <div class="kratos-post-content">
-            <h2 class="title-h2 text-center" itemprop="name headline">test</h2>
-            <div itemprop="articleBody"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Key_Proc</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">static</span> <span class="type">uint16_t</span> b1_sum = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//自己添加的防抖处理（10ms检测一次按键状态）</span></span><br><span class="line">    <span class="keyword">if</span>(uwTick - KEY_latestTime &lt;<span class="number">10</span>) <span class="keyword">return</span>;</span><br><span class="line">	KEY_latestTime = uwTick;</span><br><span class="line">    <span class="comment">//------------------------</span></span><br><span class="line">	<span class="keyword">if</span>(KB1 == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		b1_sum++;</span><br><span class="line">        <span class="keyword">if</span>(b1_sum == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            KB1_DCLK++;</span><br><span class="line">            <span class="comment">//双击</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(KB1 == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b1_sum &gt;= <span class="number">1</span> &amp;&amp; b1_sum &lt; <span class="number">10</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//短按</span></span><br><span class="line">            KB1_ShortClick_Sum++;</span><br><span class="line">            b1_sum = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(b1_sum &gt;= <span class="number">10</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            b1_sum = <span class="number">0</span>;</span><br><span class="line">            <span class="comment">//长按</span></span><br><span class="line">            KB1_LongClick_Sum++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2 class="title-h2 text-center" itemprop="name headline">好伙伴们</h2>
+            <div itemprop="articleBody"><div class="linkpage">
+    <ul id="friendsList"></ul>
 </div>
+
+<script type="text/javascript">
+{
+    const flist = [{"name":"猫猫①号","link":"https://candinya.com","avatar":"../images/avatar.webp","bio":"喵~"},{"name":"猫猫②号","link":"https://candinya.com","avatar":"../images/avatar.webp","bio":"喵喵~"},{"name":"猫猫⑨号","link":"https://candinya.com","avatar":"../images/avatar.webp","bio":"咪啪~"}];
+    let friendNodes = '';
+    while (flist.length > 0) {
+        const rndNum = Math.floor(Math.random()*flist.length);
+        friendNodes += `<li><a target="_blank" href="${flist[rndNum].link}"><img src="${flist[rndNum].avatar}" onerror="this.src='/images/avatar.webp';this.onerror=null;"><h4>${flist[rndNum].name}</h4><p>${flist[rndNum].bio}</p></a></li>`;
+        flist.splice(rndNum, 1);
+    }
+    document.getElementById("friendsList").innerHTML = friendNodes;
+}
+</script></div>
         </div>
         <footer class="kratos-entry-footer clearfix">
             <div class="footer-tag clearfix">
                 <div class="pull-date">
-                    <time datetime="2023-04-30T02:42:47.309Z" itemprop="dateModified">最后编辑：2023-04-30</time>
+                    <time datetime="2021-01-18T00:00:00.000Z" itemprop="dateModified">最后编辑：2021-01-18</time>
                 </div>
             </div>
         </footer>
     </div>
     
-    
-        <link rel="stylesheet" href="/vendors/gitalk@1.7.2/dist/gitalk.css"></script>
-<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
-<script>
-    var load_comm = () => {
-        const init = () => {
-            console.log('Gitalk loading...');
-            const gitalk = new Gitalk(Object.assign({
-                id: '/test/index.html',
-                path: '/test/index.html'
-            }, JSON.parse('{"clientID":"GitHub Application Client ID","clientSecret":"GitHub Application Client Secret","repo":"Kratos-Rebirth-Demo","owner":"Candinya","admin":["Candinya"],"distractionFreeMode":false}')));
-
-            gitalk.render('gitalk-container');
-        }
-        if (typeof Gitalk === 'undefined') {
-            const src = '/vendors/gitalk@1.7.2/dist/gitalk.min.js';
-            $.getScript(src, init);
-        } else {
-            init();
-        }
-    };
-</script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
     
 </article>
 
@@ -250,6 +239,8 @@
 
 <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
     <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+        <div class="sticky-area">
     
     
                 <aside id="krw-about" class="widget widget-kratos-about clearfix">
@@ -290,8 +281,6 @@
     </div>
 </aside>
             
-                    <div class="sticky-area">
-                
                 
 
             
