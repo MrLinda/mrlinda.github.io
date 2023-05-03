@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   
   
-  <title>致深爱你的那个我 | LXX&#39;s blog</title>
+  <title>实验一：KNN与多项式回归 | LXX&#39;s blog</title>
   
   <meta name="author" content="Lu Xiaoxiao" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,23 +15,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="movie, test" />
+    <meta name="keywords" content="实验报告" />
   
-  <meta name="description" content="测试嵌入视频">
+  <meta name="description" content="WHU动机学院机器学习实验报告（一）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="致深爱你的那个我">
-<meta property="og:url" content="http://blog.luxiaoxiao.work/2023/04/30/video-test/index.html">
+<meta property="og:title" content="实验一：KNN与多项式回归">
+<meta property="og:url" content="http://blog.luxiaoxiao.work/2023/05/03/shiyan1/index.html">
 <meta property="og:site_name" content="LXX&#39;s blog">
-<meta property="og:description" content="测试嵌入视频">
+<meta property="og:description" content="WHU动机学院机器学习实验报告（一）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.luxiaoxiao.work/2023/04/30/video-test/https:/img.luxiaoxiao.lol/2023/04/557a1327c030a12912a5256b489503ae.jpg">
-<meta property="article:published_time" content="2023-04-30T13:18:39.000Z">
-<meta property="article:modified_time" content="2023-05-01T06:03:51.839Z">
+<meta property="og:image" content="http://blog.luxiaoxiao.work/2023/05/03/shiyan1/https:/img.luxiaoxiao.work/2023/05/bf2129973d1a0f9e63f4249c8d97a947.png">
+<meta property="article:published_time" content="2023-05-03T14:58:13.000Z">
+<meta property="article:modified_time" content="2023-05-03T15:02:36.836Z">
 <meta property="article:author" content="Lu Xiaoxiao">
-<meta property="article:tag" content="test">
-<meta property="article:tag" content="movie">
+<meta property="article:tag" content="实验报告">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.luxiaoxiao.work/2023/04/30/video-test/https:/img.luxiaoxiao.lol/2023/04/557a1327c030a12912a5256b489503ae.jpg">
+<meta name="twitter:image" content="http://blog.luxiaoxiao.work/2023/05/03/shiyan1/https:/img.luxiaoxiao.work/2023/05/bf2129973d1a0f9e63f4249c8d97a947.png">
   
   <!-- 站点验证相关 -->
   
@@ -147,15 +146,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="http://blog.luxiaoxiao.work/2023/04/30/video-test/">
+    <link itemprop="mainEntityOfPage" href="http://blog.luxiaoxiao.work/2023/05/03/shiyan1/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">致深爱你的那个我</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">实验一：KNN与多项式回归</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2023-04-30T13:18:39.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-04-30</time></li>
+                <li><time datetime="2023-05-03T14:58:13.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-05-03</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lu Xiaoxiao</span>
                 </li>
@@ -164,7 +163,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            273
+                            ~1.52K
                         
                         字
                     </li>
@@ -173,13 +172,13 @@
                     
                         <li>
                             <i class="fa fa-eye"></i>
-                            <span data-path="/2023/04/30/video-test/" class="waline-pageview-count"> </span> 次阅读
+                            <span data-path="/2023/05/03/shiyan1/" class="waline-pageview-count"> </span> 次阅读
                         </li>
                     
                     
                         <li>
                             <i class="fa fa-commenting-o"></i>
-                            <span data-path="/2023/04/30/video-test/" class="waline-comment-count"> </span> 条评论
+                            <span data-path="/2023/05/03/shiyan1/" class="waline-comment-count"> </span> 条评论
                         </li>
                     
                 
@@ -189,14 +188,194 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1682921031839"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1683126156836"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
             <hr />
-            <div itemprop="articleBody"><p>若未显示播放键，刷新一次就好了（正在尝试修复）</p>
-<video id="videojs1" class="video-js vjs-16-9" controls preload="auto"><source src="https://img.luxiaoxiao.lol/2023/04/cbd932a20ec92dbe2d5e09968bc886eb.mkv" type="video/mp4"><track preload="auto" src="https://img.luxiaoxiao.lol/2023/04/04d008fd7c1f2517d47ae7a8102458ad.vtt" kind="subtitles" default label="简体中文"></video><link href="/libs/videojs2/videojs.css" rel="stylesheet"/><script data-pjax src="/libs/videojs2/video.min.js"></script><script data-pjax src="/libs/videojs2/zh-CN.min.js"></script><script src="/libs/videojs2/videojs.hotkeys.min.js"></script><script>player1=videojs("videojs1",{language:"zh-CN",responsive:true,plugins:{hotkeys:{alwaysCaptureHotkeys:true},},});</script><link rel="stylesheet" href="/libs/videojs2/mytoast.css"/><script src="/libs/videojs2/mytoast.js"></script><script>toast_init(player1)</script><link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.min.js"></script><script>player1.mobileUi();</script><script src="/libs/videojs2/videojs-remember.min.js"></script><script>videojs(document.querySelector("video")).remember({"localStorageKey": "videojs.remember.myvideo"});</script>
+            <div itemprop="articleBody"><h1 id="实验一：KNN-与多项式回归"><a href="#实验一：KNN-与多项式回归" class="headerlink" title="实验一：KNN 与多项式回归"></a>实验一：KNN 与多项式回归</h1><h2 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h2><h3 id="wine"><a href="#wine" class="headerlink" title="wine"></a>wine</h3><h4 id="采样率-0-3（共-42-个训练样本-11-个测试样本）"><a href="#采样率-0-3（共-42-个训练样本-11-个测试样本）" class="headerlink" title="采样率 0.3（共 42 个训练样本 11 个测试样本）"></a>采样率 0.3（共 42 个训练样本 11 个测试样本）</h4><table>
+<thead>
+<tr>
+<th align="center">近邻范围</th>
+<th align="center">准确率（第一次）</th>
+<th align="center">准确率（第二次）</th>
+<th align="center">准确率（第三次）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">81.82%</td>
+<td align="center">63.64%</td>
+<td align="center">63.64%</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">72.73%</td>
+<td align="center">63.64%</td>
+<td align="center">63.64%</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">72.73%</td>
+<td align="center">63.64%</td>
+<td align="center">63.64%</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">81.82%</td>
+<td align="center">63.64%</td>
+<td align="center">63.64%</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">81.82%</td>
+<td align="center">63.64%</td>
+<td align="center">54.55%</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">90.91%</td>
+<td align="center">72.73%</td>
+<td align="center">63.64%</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">90.91%</td>
+<td align="center">72.73%</td>
+<td align="center">54.55%</td>
+</tr>
+</tbody></table>
+<p><img src="https://img.luxiaoxiao.work/2023/05/e6b9e8b3b349521fedd4970dfd7e5f0d.png" alt="image-20230503153448063"></p>
+<h4 id="采样率-0-5（共-71-个训练样本-18-个测试样本）"><a href="#采样率-0-5（共-71-个训练样本-18-个测试样本）" class="headerlink" title="采样率 0.5（共 71 个训练样本 18 个测试样本）"></a>采样率 0.5（共 71 个训练样本 18 个测试样本）</h4><table>
+<thead>
+<tr>
+<th align="center">近邻范围</th>
+<th align="center">准确率（第一次）</th>
+<th align="center">准确率（第二次）</th>
+<th align="center">准确率（第三次）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">66.67%</td>
+<td align="center">72.22%</td>
+<td align="center">77.78%</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">66.67%</td>
+<td align="center">66.67%</td>
+<td align="center">83.33%</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">61.11%</td>
+<td align="center">61.11%</td>
+<td align="center">83.33%</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">55.56%</td>
+<td align="center">61.11%</td>
+<td align="center">72.22%</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">66.67%</td>
+<td align="center">61.11%</td>
+<td align="center">77.78%</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">72.22%</td>
+<td align="center">66.67%</td>
+<td align="center">72.22%</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">72.22%</td>
+<td align="center">66.67%</td>
+<td align="center">77.78%</td>
+</tr>
+</tbody></table>
+<p><img src="https://img.luxiaoxiao.work/2023/05/8c10198ebc55507de4c1c85889b855dc.png" alt="image-20230503153603810"></p>
+<h4 id="采样率-0-8（共-113-个训练样本-29-个测试样本）"><a href="#采样率-0-8（共-113-个训练样本-29-个测试样本）" class="headerlink" title="采样率 0.8（共 113 个训练样本 29 个测试样本）"></a>采样率 0.8（共 113 个训练样本 29 个测试样本）</h4><table>
+<thead>
+<tr>
+<th align="center">近邻范围</th>
+<th align="center">准确率（第一次）</th>
+<th align="center">准确率（第二次）</th>
+<th align="center">准确率（第三次）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">65.52%</td>
+<td align="center">79.31%</td>
+<td align="center">51.72%</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">65.52%</td>
+<td align="center">65.52%</td>
+<td align="center">55.17%</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">62.07%</td>
+<td align="center">72.41%</td>
+<td align="center">62.07%</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">62.07%</td>
+<td align="center">72.41%</td>
+<td align="center">58.62%</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">65.52%</td>
+<td align="center">75.86%</td>
+<td align="center">58.62%</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">62.07%</td>
+<td align="center">72.41%</td>
+<td align="center">72.41%</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">62.07%</td>
+<td align="center">79.31%</td>
+<td align="center">75.86%</td>
+</tr>
+</tbody></table>
+<p><img src="https://img.luxiaoxiao.work/2023/05/5e3cae58d18598856d2a63030c0df0ce.png" alt="image-20230503160345215"></p>
+<h4 id="参数选取"><a href="#参数选取" class="headerlink" title="参数选取"></a>参数选取</h4><p>由以上实验可知，在 K 比较小的时方差较大，K 比较大时方差较小。因此可尽量选择较大的 K，不过 K 过大会导致过拟合，所以在该实验中 K 可选取 3~5。</p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>在确定数据集合采样率后自适应选择 K 的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">k = <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>)</span><br><span class="line">K_best = <span class="number">0</span></span><br><span class="line">pr_max = <span class="number">0.0</span></span><br><span class="line"><span class="keyword">for</span> k_test <span class="keyword">in</span> k:</span><br><span class="line">    clf = KNN(X_train, y_train, k_test)</span><br><span class="line">    pr_now = clf.score(X_test, y_test)</span><br><span class="line">    <span class="keyword">if</span> pr_now &gt; pr_max:</span><br><span class="line">        pr_max = pr_now</span><br><span class="line">        K_best = k_test</span><br><span class="line"><span class="comment">#寻找最佳K</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Best K: %d , Best Precision Rate: %.2f%%&#x27;</span> % (K_best,pr_max * <span class="number">100</span>))</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/4530062ef36a44620fb82c2ef7ec69dc.png" alt="image-20230503160017767"></p>
+<h2 id="Regression"><a href="#Regression" class="headerlink" title="Regression"></a>Regression</h2><h3 id="信号频率-1"><a href="#信号频率-1" class="headerlink" title="信号频率 1"></a>信号频率 1</h3><h4 id="噪声方差-0-2"><a href="#噪声方差-0-2" class="headerlink" title="噪声方差 0.2"></a>噪声方差 0.2</h4><h5 id="M-x3D-10"><a href="#M-x3D-10" class="headerlink" title="M&#x3D;10"></a>M&#x3D;10</h5><p><img src="https://img.luxiaoxiao.work/2023/05/0325e23f60fa2a50ccfcf7edac3f0cb3.png" alt="下载 (2)"></p>
+<h5 id="M-x3D-180"><a href="#M-x3D-180" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/acb378a592ac928b200e6272cf50c2ac.png" alt="下载 (1)"></p>
+<h4 id="噪声方差-0-5"><a href="#噪声方差-0-5" class="headerlink" title="噪声方差 0.5"></a>噪声方差 0.5</h4><h5 id="M-x3D-10-1"><a href="#M-x3D-10-1" class="headerlink" title="M&#x3D;10"></a>M&#x3D;10</h5><p><img src="https://img.luxiaoxiao.work/2023/05/d16de46abac55ba4834a649968f296d1.png" alt="下载 (1)"></p>
+<h5 id="M-x3D-50"><a href="#M-x3D-50" class="headerlink" title="M&#x3D;50"></a>M&#x3D;50</h5><p><img src="https://img.luxiaoxiao.work/2023/05/53cbf0ea028913fc124517dc536d210e.png" alt="下载 (2)"></p>
+<h5 id="M-x3D-180-1"><a href="#M-x3D-180-1" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/db23baa863cd4fe5948eba30ee3cce2c.png" alt="下载 (3)"></p>
+<h3 id="信号频率-2"><a href="#信号频率-2" class="headerlink" title="信号频率 2"></a>信号频率 2</h3><h4 id="噪声方差-0-5-1"><a href="#噪声方差-0-5-1" class="headerlink" title="噪声方差 0.5"></a>噪声方差 0.5</h4><h5 id="M-x3D-10-2"><a href="#M-x3D-10-2" class="headerlink" title="M&#x3D;10"></a>M&#x3D;10</h5><p><img src="https://img.luxiaoxiao.work/2023/05/cf9c8296e9ac5b81b3372c171571c656.png" alt="下载 (2)"></p>
+<h5 id="M-x3D-180-2"><a href="#M-x3D-180-2" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/99cc4e5f34b7b627971d49a08ea6736d.png" alt="下载 (1)"></p>
+<h3 id="信号频率-4"><a href="#信号频率-4" class="headerlink" title="信号频率 4"></a>信号频率 4</h3><h4 id="噪声方差-0-2-1"><a href="#噪声方差-0-2-1" class="headerlink" title="噪声方差 0.2"></a>噪声方差 0.2</h4><h5 id="M-x3D-10-3"><a href="#M-x3D-10-3" class="headerlink" title="M&#x3D;10"></a>M&#x3D;10</h5><p><img src="https://img.luxiaoxiao.work/2023/05/836207b141d1c9e007d05fc5852b525e.png" alt="下载 (3)"></p>
+<h5 id="M-x3D-50-1"><a href="#M-x3D-50-1" class="headerlink" title="M&#x3D;50"></a>M&#x3D;50</h5><p><img src="https://img.luxiaoxiao.work/2023/05/8fa3cf7d5bfaaa35c659585e4e0ae602.png" alt="下载 (4)"></p>
+<h5 id="M-x3D-180-3"><a href="#M-x3D-180-3" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/ccaa44786963d6605dae538ed1eed371.png" alt="下载 (5)"></p>
+<h4 id="噪声方差-0-5-2"><a href="#噪声方差-0-5-2" class="headerlink" title="噪声方差 0.5"></a>噪声方差 0.5</h4><h5 id="M-x3D-30"><a href="#M-x3D-30" class="headerlink" title="M&#x3D;30"></a>M&#x3D;30</h5><p><img src="https://img.luxiaoxiao.work/2023/05/99cc4e5f34b7b627971d49a08ea6736d.png" alt="下载 (1)"></p>
+<h5 id="M-x3D-180-4"><a href="#M-x3D-180-4" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/cf9c8296e9ac5b81b3372c171571c656.png" alt="下载 (2)"></p>
+<h3 id="信号频率-8"><a href="#信号频率-8" class="headerlink" title="信号频率 8"></a>信号频率 8</h3><h4 id="噪声方差-0-1"><a href="#噪声方差-0-1" class="headerlink" title="噪声方差 0.1"></a>噪声方差 0.1</h4><h5 id="M-x3D-180-5"><a href="#M-x3D-180-5" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/ea08e0112292be4d55edeeda367b4844.png" alt="下载 (1)"></p>
+<h4 id="噪声方差-0-5-3"><a href="#噪声方差-0-5-3" class="headerlink" title="噪声方差 0.5"></a>噪声方差 0.5</h4><h5 id="M-x3D-180-6"><a href="#M-x3D-180-6" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/f511204eddc9dcdd9bc8c2077ad29d72.png" alt="下载 (1)"></p>
+<h3 id="拟合效果与条件关系"><a href="#拟合效果与条件关系" class="headerlink" title="拟合效果与条件关系"></a>拟合效果与条件关系</h3><p>多项式次数越高越容易拟合高频的信号，但是多项式次数过高容易过拟合；</p>
+<p>多项式次数越低越容易欠拟合，尤其是对于低频信号。</p>
+<p>因此需要在尽可能拟合信号的情况下降低多项式次数，从而降低噪声对于模型训练的影响。</p>
 </div>
         </div>
         
@@ -246,7 +425,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://blog.luxiaoxiao.work/2023/04/30/video-test/",
+                text: "http://blog.luxiaoxiao.work/2023/05/03/shiyan1/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -258,9 +437,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://blog.luxiaoxiao.work/2023/04/30/video-test/";
-            const title         = "「致深爱你的那个我」";
-            const excerpt       = `测试嵌入视频`;
+            const hostUrl       = "http://blog.luxiaoxiao.work/2023/05/03/shiyan1/";
+            const title         = "「实验一：KNN与多项式回归」";
+            const excerpt       = `WHU动机学院机器学习实验报告（一）`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -279,10 +458,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/movie/" rel="tag">movie</a>, <a class="tag-none-link" href="/tags/test/" rel="tag">test</a>
+                    <a class="tag-none-link" href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" rel="tag">实验报告</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-05-01T06:03:51.839Z" itemprop="dateModified">最后编辑：2023-05-01</time>
+                    <time datetime="2023-05-03T15:02:36.836Z" itemprop="dateModified">最后编辑：2023-05-03</time>
                 </div>
             </div>
         </footer>
@@ -291,13 +470,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" test" href="/2023/04/30/code-test/">&lt; 上一篇</a>
+                <a title=" 致深爱你的那个我" href="/2023/04/30/video-test/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" 实验一：KNN与多项式回归" href="/2023/05/03/shiyan1/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -309,7 +484,7 @@
         const init = () => {
             Waline.init(Object.assign({
                 el: '#w-comments',
-                path: '/2023/04/30/video-test/',
+                path: '/2023/05/03/shiyan1/',
                 dark: 'html[data-theme="dark"]',
             }, JSON.parse('{"serverURL":"https://waline.luxiaoxiao.work","comment":true,"pageview":true}')));
         }
