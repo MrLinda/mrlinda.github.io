@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   
   
-  <title>Hello World | LXX&#39;s blog</title>
+  <title>实验二：模型评估与选择（1） | LXX&#39;s blog</title>
   
   <meta name="author" content="Lu Xiaoxiao" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,20 +15,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="test" />
+    <meta name="keywords" content="实验报告" />
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="WHU动机学院机器学习实验报告（二）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://blog.luxiaoxiao.work/2023/04/29/hello-world/index.html">
+<meta property="og:title" content="实验二：模型评估与选择（1）">
+<meta property="og:url" content="http://blog.luxiaoxiao.work/2023/05/04/MLExperiment2/index.html">
 <meta property="og:site_name" content="LXX&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="WHU动机学院机器学习实验报告（二）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-29T09:38:59.420Z">
-<meta property="article:modified_time" content="2023-04-30T14:45:50.452Z">
+<meta property="og:image" content="http://blog.luxiaoxiao.work/2023/05/04/MLExperiment2/https:/img.luxiaoxiao.work/2023/05/5863079f2a3310834ac65d8c956ef9bd.png">
+<meta property="article:published_time" content="2023-05-04T07:08:33.000Z">
+<meta property="article:modified_time" content="2023-05-04T07:09:29.035Z">
 <meta property="article:author" content="Lu Xiaoxiao">
-<meta property="article:tag" content="test">
+<meta property="article:tag" content="实验报告">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.luxiaoxiao.work/2023/05/04/MLExperiment2/https:/img.luxiaoxiao.work/2023/05/5863079f2a3310834ac65d8c956ef9bd.png">
   
   <!-- 站点验证相关 -->
   
@@ -148,15 +150,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="http://blog.luxiaoxiao.work/2023/04/29/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://blog.luxiaoxiao.work/2023/05/04/MLExperiment2/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Hello World</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">实验二：模型评估与选择（1）</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2023-04-29T09:38:59.420Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-04-29</time></li>
+                <li><time datetime="2023-05-04T07:08:33.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-05-04</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lu Xiaoxiao</span>
                 </li>
@@ -165,7 +167,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            446
+                            ~3.86K
                         
                         字
                     </li>
@@ -174,13 +176,13 @@
                     
                         <li>
                             <i class="fa fa-eye"></i>
-                            <span data-path="/2023/04/29/hello-world/" class="waline-pageview-count"> </span> 次阅读
+                            <span data-path="/2023/05/04/MLExperiment2/" class="waline-pageview-count"> </span> 次阅读
                         </li>
                     
                     
                         <li>
                             <i class="fa fa-commenting-o"></i>
-                            <span data-path="/2023/04/29/hello-world/" class="waline-comment-count"> </span> 条评论
+                            <span data-path="/2023/05/04/MLExperiment2/" class="waline-comment-count"> </span> 条评论
                         </li>
                     
                 
@@ -190,27 +192,283 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1682865950452"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1683184169035"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
             <hr />
-            <div itemprop="articleBody"><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
+            <div itemprop="articleBody"><h1 id="实验二：模型评估与选择（1）"><a href="#实验二：模型评估与选择（1）" class="headerlink" title="实验二：模型评估与选择（1）"></a>实验二：模型评估与选择（1）</h1><h2 id="熟悉训练集-测试集划分、流水线和交叉验证函数的使用"><a href="#熟悉训练集-测试集划分、流水线和交叉验证函数的使用" class="headerlink" title="熟悉训练集-测试集划分、流水线和交叉验证函数的使用"></a>熟悉训练集-测试集划分、流水线和交叉验证函数的使用</h2><h3 id="训练集-测试集划分函数"><a href="#训练集-测试集划分函数" class="headerlink" title="训练集-测试集划分函数"></a>训练集-测试集划分函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size, stratify, random_state)</span><br></pre></td></tr></table></figure>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>输入参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">test_size</td>
+<td align="center">0~1 的小数：测试集占原始样本比例；整数：测试集样本数</td>
+</tr>
+<tr>
+<td align="center">stratify</td>
+<td align="center">保持划分前的分布（各类样本的占比保持不变）</td>
+</tr>
+<tr>
+<td align="center">random_state</td>
+<td align="center">随机数种子</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<table>
+<thead>
+<tr>
+<th align="center">返回值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">X_train</td>
+<td align="center">划分出的训练集数据</td>
+</tr>
+<tr>
+<td align="center">X_test</td>
+<td align="center">划分出的测试集数据</td>
+</tr>
+<tr>
+<td align="center">y_train</td>
+<td align="center">划分出的训练集标签</td>
+</tr>
+<tr>
+<td align="center">y_test</td>
+<td align="center">划分出的测试集标签</td>
+</tr>
+</tbody></table>
+<h3 id="流水线函数"><a href="#流水线函数" class="headerlink" title="流水线函数"></a>流水线函数</h3><p><img src="https://img.luxiaoxiao.work/2023/05/e1115f143c073cc8562ec6074bb0fd8f.png" alt="流水线"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> make_pipeline</span><br><span class="line">pipe_lr = make_pipeline(*steps, **kwargs)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>输入参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*steps</td>
+<td align="center">需要串联的估计器（estimators）</td>
+</tr>
+<tr>
+<td align="center">**kwargs</td>
+<td align="center">一些关键词参数（memory，verbose）</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<table>
+<thead>
+<tr>
+<th align="center">返回值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">p</td>
+<td align="center">返回一个 Pipeline 对象</td>
+</tr>
+</tbody></table>
+<p>如示例程序中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> make_pipeline</span><br><span class="line">pipe_lr = make_pipeline(StandardScaler(),</span><br><span class="line">                        PCA(n_components=<span class="number">2</span>),</span><br><span class="line">                        LogisticRegression(random_state=<span class="number">1</span>, solver=<span class="string">&#x27;lbfgs&#x27;</span>))</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>pipe_lr 为 Pipeline 类的一个实例，其步骤为：</p>
+<ol>
+<li>标准化处理（StandardScaler）</li>
+<li>主成分分析、特征降维（PCA）</li>
+<li>逻辑回归（LogisticRegression）</li>
+</ol>
+<h3 id="交叉验证函数"><a href="#交叉验证函数" class="headerlink" title="交叉验证函数"></a>交叉验证函数</h3><p><img src="https://img.luxiaoxiao.work/2023/05/c64e1454f14bd6b66ef80d25ede70fd9.png" alt="交叉验证"></p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/b0aac89ac3f41b9cf62566a9b973f993.png" alt="K折交叉验证"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line">scores = cross_val_score(estimator, X, y=<span class="literal">None</span>, *, groups=<span class="literal">None</span>, scoring=<span class="literal">None</span>, cv=<span class="literal">None</span>, n_jobs=<span class="literal">None</span>, verbose=<span class="number">0</span>, fit_params=<span class="literal">None</span>, pre_dispatch=<span class="string">&#x27;2*n_jobs&#x27;</span>, error_score=nan)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>输入参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">estimator</td>
+<td align="center">估计器</td>
+</tr>
+<tr>
+<td align="center">X,y</td>
+<td align="center">训练集</td>
+</tr>
+<tr>
+<td align="center">cv</td>
+<td align="center">交叉验证的折数（默认 5 折）</td>
+</tr>
+<tr>
+<td align="center">n_jobs</td>
+<td align="center">同时使用的处理器个数（默认一般为 1，-1 为全部使用）</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<table>
+<thead>
+<tr>
+<th align="center">返回值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">scores</td>
+<td align="center">每次交叉验证的估计器的准确率</td>
+</tr>
+</tbody></table>
+<h2 id="熟悉学习曲线的使用"><a href="#熟悉学习曲线的使用" class="headerlink" title="熟悉学习曲线的使用"></a>熟悉学习曲线的使用</h2><p><img src="https://img.luxiaoxiao.work/2023/05/08c3350dc3ca09457274962f169c905b.png" alt="学习曲线"></p>
+<p>学习曲线：在训练集和验证集上，关于训练数据规模的性能曲线。用于调试算法</p>
+<h3 id="熟悉函数"><a href="#熟悉函数" class="headerlink" title="熟悉函数"></a>熟悉函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> learning_curve</span><br><span class="line">train_sizes, train_scores, test_scores =\</span><br><span class="line">	learning_curve(estimator=pipe_lr,</span><br><span class="line">		X=X_train,</span><br><span class="line">		y=y_train,</span><br><span class="line">		train_sizes=np.linspace(<span class="number">0.1</span>, <span class="number">1.0</span>, <span class="number">10</span>),</span><br><span class="line">		cv=<span class="number">10</span>,</span><br><span class="line">		n_jobs=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>输入参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">estimator</td>
+<td align="center">估计器</td>
+</tr>
+<tr>
+<td align="center">X,y</td>
+<td align="center">训练集</td>
+</tr>
+<tr>
+<td align="center">train_sizes</td>
+<td align="center">训练集的数量，用于生成学习曲线横坐标</td>
+</tr>
+<tr>
+<td align="center">cv</td>
+<td align="center">交叉验证的折数（默认 5 折）</td>
+</tr>
+<tr>
+<td align="center">n_jobs</td>
+<td align="center">同时使用的处理器个数（默认一般为 1，-1 为全部使用）</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<table>
+<thead>
+<tr>
+<th align="center">返回值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">train_sizes</td>
+<td align="center">已用于生成学习曲线的训练示例数</td>
+</tr>
+<tr>
+<td align="center">train_scores</td>
+<td align="center">训练集得分</td>
+</tr>
+<tr>
+<td align="center">test_scores</td>
+<td align="center">测试集得分</td>
+</tr>
+</tbody></table>
+<h3 id="修改参数实验"><a href="#修改参数实验" class="headerlink" title="修改参数实验"></a>修改参数实验</h3><p>进行 20 次训练（<code>train_sizes=np.linspace(0.1, 1.0, 20)</code>）</p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/e547cb1e5b76c8ee19b772317140d76b.png" alt="CV=2"></p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/b928494b9e9e5252168385c1db6324db.png" alt="CV=5"></p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/a889bd1d760b28e59fb18bf942996986.png" alt="CV=10"></p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/76136adaa4507504bcd768809b79a6c8.png" alt="CV=15"></p>
+<p>实验结果：</p>
+<ul>
+<li>训练集上，CV 越大，偏差越大，方差越小</li>
+<li>测试集上，CV 越大，偏差越小，方差越大</li>
+</ul>
+<p>因为 CV 越大，用于训练的样本越多，误差增大，因此训练准确率会下降、方差变小，而测试集样本变少，测试的方差变大。</p>
+<p>就基础代码实际使用的数据而言，模型拟合效果不错，CV 取 5~10 时，偏差和方差都较小</p>
+<h2 id="熟悉验证曲线的使用"><a href="#熟悉验证曲线的使用" class="headerlink" title="熟悉验证曲线的使用"></a>熟悉验证曲线的使用</h2><p>验证曲线（拟合图）：反映模型泛化性能（测试误差）与模型复杂度关系的曲线，用于模型选择。</p>
+<p>要防止过拟合，就需要进行模型选择：选择复杂度适当的模型，以达到使测试误差最小的学习目的。</p>
+<h3 id="熟悉函数-1"><a href="#熟悉函数-1" class="headerlink" title="熟悉函数"></a>熟悉函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> validation_curve</span><br><span class="line">train_scores, test_scores = validation_curve(</span><br><span class="line">	estimator=pipe_lr,</span><br><span class="line">	X=X_train,</span><br><span class="line">	y=y_train,</span><br><span class="line">	param_name=<span class="string">&#x27;logisticregression__C&#x27;</span>,</span><br><span class="line">	param_range=param_range,</span><br><span class="line">	cv=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输入参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">estimator</td>
+<td align="center">估计器</td>
+</tr>
+<tr>
+<td align="center">X,y</td>
+<td align="center">训练集</td>
+</tr>
+<tr>
+<td align="center">param_name</td>
+<td align="center">自变量名称</td>
+</tr>
+<tr>
+<td align="center">param_range</td>
+<td align="center">自变量</td>
+</tr>
+<tr>
+<td align="center">cv</td>
+<td align="center">交叉验证的折数（默认 5 折）</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<table>
+<thead>
+<tr>
+<th align="center">返回值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">train_scores</td>
+<td align="center">训练集得分</td>
+</tr>
+<tr>
+<td align="center">test_scores</td>
+<td align="center">测试集得分</td>
+</tr>
+</tbody></table>
+<h3 id="修改参数实验-1"><a href="#修改参数实验-1" class="headerlink" title="修改参数实验"></a>修改参数实验</h3><h4 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h4><p>修改为：<code>param_range = [0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0]</code></p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/c7a891b2e7f2c43da142e42ef50a3145.png" alt="CV=5"></p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/121943b3314c1f431ae8b4cc135b0a91.png" alt="CV=10"></p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/6fb78f904574a58b2a41f9e7f18d777a.png" alt="CV=15"></p>
+<p>实验结果：</p>
+<ul>
+<li>CV 取 5~10 较好</li>
+<li>C 取 10 较好</li>
+</ul>
+<h4 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h4><p>修改代码为：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line">pipe_lr = make_pipeline(StandardScaler(),</span><br><span class="line">                        KNeighborsClassifier(n_neighbors=<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">param_range = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">13</span>,<span class="number">17</span>]</span><br><span class="line">train_scores, test_scores = validation_curve(</span><br><span class="line">                estimator=pipe_lr,</span><br><span class="line">                X=X_train,</span><br><span class="line">                y=y_train,</span><br><span class="line">                param_name=<span class="string">&#x27;kneighborsclassifier__n_neighbors&#x27;</span>,</span><br><span class="line">                param_range=param_range,</span><br><span class="line">                cv=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">param_range = [0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0]</span></span><br><span class="line"><span class="string">train_scores, test_scores = validation_curve(</span></span><br><span class="line"><span class="string">                estimator=pipe_lr,</span></span><br><span class="line"><span class="string">                X=X_train,</span></span><br><span class="line"><span class="string">                y=y_train,</span></span><br><span class="line"><span class="string">                param_name=&#x27;logisticregression__C&#x27;,</span></span><br><span class="line"><span class="string">                param_range=param_range,</span></span><br><span class="line"><span class="string">                cv=15,)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>第 54~60 行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.grid()</span><br><span class="line"><span class="comment">#plt.xscale(&#x27;log&#x27;)</span></span><br><span class="line">plt.xscale(<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.legend(loc=<span class="string">&#x27;lower right&#x27;</span>)</span><br><span class="line"><span class="comment">#plt.xlabel(&#x27;Parameter C&#x27;)</span></span><br><span class="line">plt.xlabel(<span class="string">&#x27;n_neighbors&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.luxiaoxiao.work/2023/05/318e3b98b8dc797d5cf3ba8eb4f4d800.png" alt="CV=5"></p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/818a3b539c3002a3f1576e570b0117f4.png" alt="CV=10"></p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/5c7e7a2ef9d0af473b5f9a510bc370b1.png" alt="CV=15"></p>
+<p>实验结果：</p>
+<ul>
+<li>CV 取 5~10 较好</li>
+<li>C 取 9 较好</li>
+</ul>
 </div>
         </div>
         
@@ -260,7 +518,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://blog.luxiaoxiao.work/2023/04/29/hello-world/",
+                text: "http://blog.luxiaoxiao.work/2023/05/04/MLExperiment2/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -272,9 +530,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://blog.luxiaoxiao.work/2023/04/29/hello-world/";
-            const title         = "「Hello World」";
-            const excerpt       = `Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.`;
+            const hostUrl       = "http://blog.luxiaoxiao.work/2023/05/04/MLExperiment2/";
+            const title         = "「实验二：模型评估与选择（1）」";
+            const excerpt       = `WHU动机学院机器学习实验报告（二）`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -293,10 +551,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/test/" rel="tag">test</a>
+                    <a class="tag-none-link" href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" rel="tag">实验报告</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-04-30T14:45:50.452Z" itemprop="dateModified">最后编辑：2023-04-30</time>
+                    <time datetime="2023-05-04T07:09:29.035Z" itemprop="dateModified">最后编辑：2023-05-04</time>
                 </div>
             </div>
         </footer>
@@ -304,10 +562,10 @@
     
         <nav class="navigation post-navigation clearfix" role="navigation">
             
-            
-            <div class="nav-next clearfix">
-                <a title=" test" href="/2023/04/30/code-test/">下一篇 &gt;</a>
+            <div class="nav-previous clearfix">
+                <a title=" 实验一：KNN与多项式回归" href="/2023/05/03/MLExperiment1/">&lt; 上一篇</a>
             </div>
+            
             
         </nav>
     
@@ -319,7 +577,7 @@
         const init = () => {
             Waline.init(Object.assign({
                 el: '#w-comments',
-                path: '/2023/04/29/hello-world/',
+                path: '/2023/05/04/MLExperiment2/',
                 dark: 'html[data-theme="dark"]',
             }, JSON.parse('{"serverURL":"https://waline.luxiaoxiao.work","comment":true,"pageview":true}')));
         }
