@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   
   
-  <title>实验一：KNN与多项式回归 | LXX&#39;s blog</title>
+  <title>实验三：模型评估与选择（2） | LXX&#39;s blog</title>
   
   <meta name="author" content="Lu Xiaoxiao" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -17,20 +17,20 @@
   
     <meta name="keywords" content="实验报告" />
   
-  <meta name="description" content="WHU动机学院机器学习实验报告（一）">
+  <meta name="description" content="WHU动机学院机器学习实验报告（二）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实验一：KNN与多项式回归">
-<meta property="og:url" content="http://blog.luxiaoxiao.work/2023/05/03/MLExperiment1/index.html">
+<meta property="og:title" content="实验三：模型评估与选择（2）">
+<meta property="og:url" content="http://blog.luxiaoxiao.work/2023/05/05/MLExperiment3/index.html">
 <meta property="og:site_name" content="LXX&#39;s blog">
-<meta property="og:description" content="WHU动机学院机器学习实验报告（一）">
+<meta property="og:description" content="WHU动机学院机器学习实验报告（二）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.luxiaoxiao.work/2023/05/03/MLExperiment1/https:/img.luxiaoxiao.work/2023/05/bf2129973d1a0f9e63f4249c8d97a947.png">
-<meta property="article:published_time" content="2023-05-03T14:58:13.000Z">
-<meta property="article:modified_time" content="2023-05-04T07:06:52.104Z">
+<meta property="og:image" content="http://blog.luxiaoxiao.work/2023/05/05/MLExperiment3/https:/img.luxiaoxiao.work/2023/05/c5a7d4d9e29bf3783248daea8a6012dd.png">
+<meta property="article:published_time" content="2023-05-05T14:46:02.000Z">
+<meta property="article:modified_time" content="2023-05-05T14:47:17.547Z">
 <meta property="article:author" content="Lu Xiaoxiao">
 <meta property="article:tag" content="实验报告">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.luxiaoxiao.work/2023/05/03/MLExperiment1/https:/img.luxiaoxiao.work/2023/05/bf2129973d1a0f9e63f4249c8d97a947.png">
+<meta name="twitter:image" content="http://blog.luxiaoxiao.work/2023/05/05/MLExperiment3/https:/img.luxiaoxiao.work/2023/05/c5a7d4d9e29bf3783248daea8a6012dd.png">
   
   <!-- 站点验证相关 -->
   
@@ -150,15 +150,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="http://blog.luxiaoxiao.work/2023/05/03/MLExperiment1/">
+    <link itemprop="mainEntityOfPage" href="http://blog.luxiaoxiao.work/2023/05/05/MLExperiment3/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">实验一：KNN与多项式回归</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">实验三：模型评估与选择（2）</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2023-05-03T14:58:13.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-05-03</time></li>
+                <li><time datetime="2023-05-05T14:46:02.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-05-05</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lu Xiaoxiao</span>
                 </li>
@@ -167,7 +167,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.52K
+                            ~5.06K
                         
                         字
                     </li>
@@ -176,13 +176,13 @@
                     
                         <li>
                             <i class="fa fa-eye"></i>
-                            <span data-path="/2023/05/03/MLExperiment1/" class="waline-pageview-count"> </span> 次阅读
+                            <span data-path="/2023/05/05/MLExperiment3/" class="waline-pageview-count"> </span> 次阅读
                         </li>
                     
                     
                         <li>
                             <i class="fa fa-commenting-o"></i>
-                            <span data-path="/2023/05/03/MLExperiment1/" class="waline-comment-count"> </span> 条评论
+                            <span data-path="/2023/05/05/MLExperiment3/" class="waline-comment-count"> </span> 条评论
                         </li>
                     
                 
@@ -192,194 +192,481 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1683184012104"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1683298037547"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
             <hr />
-            <div itemprop="articleBody"><h1 id="实验一：KNN-与多项式回归"><a href="#实验一：KNN-与多项式回归" class="headerlink" title="实验一：KNN 与多项式回归"></a>实验一：KNN 与多项式回归</h1><h2 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h2><h3 id="wine"><a href="#wine" class="headerlink" title="wine"></a>wine</h3><h4 id="采样率-0-3（共-42-个训练样本-11-个测试样本）"><a href="#采样率-0-3（共-42-个训练样本-11-个测试样本）" class="headerlink" title="采样率 0.3（共 42 个训练样本 11 个测试样本）"></a>采样率 0.3（共 42 个训练样本 11 个测试样本）</h4><table>
-<thead>
-<tr>
-<th align="center">近邻范围</th>
-<th align="center">准确率（第一次）</th>
-<th align="center">准确率（第二次）</th>
-<th align="center">准确率（第三次）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">81.82%</td>
-<td align="center">63.64%</td>
-<td align="center">63.64%</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">72.73%</td>
-<td align="center">63.64%</td>
-<td align="center">63.64%</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">72.73%</td>
-<td align="center">63.64%</td>
-<td align="center">63.64%</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">81.82%</td>
-<td align="center">63.64%</td>
-<td align="center">63.64%</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center">81.82%</td>
-<td align="center">63.64%</td>
-<td align="center">54.55%</td>
-</tr>
-<tr>
-<td align="center">8</td>
-<td align="center">90.91%</td>
-<td align="center">72.73%</td>
-<td align="center">63.64%</td>
-</tr>
-<tr>
-<td align="center">10</td>
-<td align="center">90.91%</td>
-<td align="center">72.73%</td>
-<td align="center">54.55%</td>
-</tr>
-</tbody></table>
-<p><img src="https://img.luxiaoxiao.work/2023/05/e6b9e8b3b349521fedd4970dfd7e5f0d.png"></p>
-<h4 id="采样率-0-5（共-71-个训练样本-18-个测试样本）"><a href="#采样率-0-5（共-71-个训练样本-18-个测试样本）" class="headerlink" title="采样率 0.5（共 71 个训练样本 18 个测试样本）"></a>采样率 0.5（共 71 个训练样本 18 个测试样本）</h4><table>
-<thead>
-<tr>
-<th align="center">近邻范围</th>
-<th align="center">准确率（第一次）</th>
-<th align="center">准确率（第二次）</th>
-<th align="center">准确率（第三次）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">66.67%</td>
-<td align="center">72.22%</td>
-<td align="center">77.78%</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">66.67%</td>
-<td align="center">66.67%</td>
-<td align="center">83.33%</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">61.11%</td>
-<td align="center">61.11%</td>
-<td align="center">83.33%</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">55.56%</td>
-<td align="center">61.11%</td>
-<td align="center">72.22%</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center">66.67%</td>
-<td align="center">61.11%</td>
-<td align="center">77.78%</td>
-</tr>
-<tr>
-<td align="center">8</td>
-<td align="center">72.22%</td>
-<td align="center">66.67%</td>
-<td align="center">72.22%</td>
-</tr>
-<tr>
-<td align="center">10</td>
-<td align="center">72.22%</td>
-<td align="center">66.67%</td>
-<td align="center">77.78%</td>
-</tr>
-</tbody></table>
-<p><img src="https://img.luxiaoxiao.work/2023/05/8c10198ebc55507de4c1c85889b855dc.png"></p>
-<h4 id="采样率-0-8（共-113-个训练样本-29-个测试样本）"><a href="#采样率-0-8（共-113-个训练样本-29-个测试样本）" class="headerlink" title="采样率 0.8（共 113 个训练样本 29 个测试样本）"></a>采样率 0.8（共 113 个训练样本 29 个测试样本）</h4><table>
-<thead>
-<tr>
-<th align="center">近邻范围</th>
-<th align="center">准确率（第一次）</th>
-<th align="center">准确率（第二次）</th>
-<th align="center">准确率（第三次）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">65.52%</td>
-<td align="center">79.31%</td>
-<td align="center">51.72%</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">65.52%</td>
-<td align="center">65.52%</td>
-<td align="center">55.17%</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">62.07%</td>
-<td align="center">72.41%</td>
-<td align="center">62.07%</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">62.07%</td>
-<td align="center">72.41%</td>
-<td align="center">58.62%</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center">65.52%</td>
-<td align="center">75.86%</td>
-<td align="center">58.62%</td>
-</tr>
-<tr>
-<td align="center">8</td>
-<td align="center">62.07%</td>
-<td align="center">72.41%</td>
-<td align="center">72.41%</td>
-</tr>
-<tr>
-<td align="center">10</td>
-<td align="center">62.07%</td>
-<td align="center">79.31%</td>
-<td align="center">75.86%</td>
-</tr>
-</tbody></table>
-<p><img src="https://img.luxiaoxiao.work/2023/05/5e3cae58d18598856d2a63030c0df0ce.png"></p>
-<h4 id="参数选取"><a href="#参数选取" class="headerlink" title="参数选取"></a>参数选取</h4><p>由以上实验可知，在 K 比较小的时方差较大，K 比较大时方差较小。因此可尽量选择较大的 K，不过 K 过大会导致过拟合，所以在该实验中 K 可选取 3~5。</p>
-<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>在确定数据集合采样率后自适应选择 K 的值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">k = <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>)</span><br><span class="line">K_best = <span class="number">0</span></span><br><span class="line">pr_max = <span class="number">0.0</span></span><br><span class="line"><span class="keyword">for</span> k_test <span class="keyword">in</span> k:</span><br><span class="line">    clf = KNN(X_train, y_train, k_test)</span><br><span class="line">    pr_now = clf.score(X_test, y_test)</span><br><span class="line">    <span class="keyword">if</span> pr_now &gt; pr_max:</span><br><span class="line">        pr_max = pr_now</span><br><span class="line">        K_best = k_test</span><br><span class="line"><span class="comment">#寻找最佳K</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Best K: %d , Best Precision Rate: %.2f%%&#x27;</span> % (K_best,pr_max * <span class="number">100</span>))</span><br></pre></td></tr></table></figure>
+            <div itemprop="articleBody"><h1 id="实验三：模型评估与选择（2）"><a href="#实验三：模型评估与选择（2）" class="headerlink" title="实验三：模型评估与选择（2）"></a>实验三：模型评估与选择（2）</h1><h2 id="带交叉验证的最优超参数搜索函数"><a href="#带交叉验证的最优超参数搜索函数" class="headerlink" title="带交叉验证的最优超参数搜索函数"></a>带交叉验证的最优超参数搜索函数</h2><h3 id="带交叉验证的网格搜索函数"><a href="#带交叉验证的网格搜索函数" class="headerlink" title="带交叉验证的网格搜索函数"></a>带交叉验证的网格搜索函数</h3><h4 id="熟悉函数"><a href="#熟悉函数" class="headerlink" title="熟悉函数"></a>熟悉函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line">gs = GridSearchCV(estimator=pipe_svc,</span><br><span class="line">	param_grid=param_grid,</span><br><span class="line">	scoring=<span class="string">&#x27;accuracy&#x27;</span>,</span><br><span class="line">	refit=<span class="literal">True</span>,</span><br><span class="line">	cv=<span class="number">10</span>,</span><br><span class="line">	n_jobs=-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
-<p>运行结果：</p>
-<p><img src="https://img.luxiaoxiao.work/2023/05/4530062ef36a44620fb82c2ef7ec69dc.png"></p>
-<h2 id="Regression"><a href="#Regression" class="headerlink" title="Regression"></a>Regression</h2><h3 id="信号频率-1"><a href="#信号频率-1" class="headerlink" title="信号频率 1"></a>信号频率 1</h3><h4 id="噪声方差-0-2"><a href="#噪声方差-0-2" class="headerlink" title="噪声方差 0.2"></a>噪声方差 0.2</h4><h5 id="M-x3D-10"><a href="#M-x3D-10" class="headerlink" title="M&#x3D;10"></a>M&#x3D;10</h5><p><img src="https://img.luxiaoxiao.work/2023/05/0325e23f60fa2a50ccfcf7edac3f0cb3.png"></p>
-<h5 id="M-x3D-180"><a href="#M-x3D-180" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/acb378a592ac928b200e6272cf50c2ac.png"></p>
-<h4 id="噪声方差-0-5"><a href="#噪声方差-0-5" class="headerlink" title="噪声方差 0.5"></a>噪声方差 0.5</h4><h5 id="M-x3D-10-1"><a href="#M-x3D-10-1" class="headerlink" title="M&#x3D;10"></a>M&#x3D;10</h5><p><img src="https://img.luxiaoxiao.work/2023/05/d16de46abac55ba4834a649968f296d1.png"></p>
-<h5 id="M-x3D-50"><a href="#M-x3D-50" class="headerlink" title="M&#x3D;50"></a>M&#x3D;50</h5><p><img src="https://img.luxiaoxiao.work/2023/05/53cbf0ea028913fc124517dc536d210e.png"></p>
-<h5 id="M-x3D-180-1"><a href="#M-x3D-180-1" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/db23baa863cd4fe5948eba30ee3cce2c.png"></p>
-<h3 id="信号频率-2"><a href="#信号频率-2" class="headerlink" title="信号频率 2"></a>信号频率 2</h3><h4 id="噪声方差-0-5-1"><a href="#噪声方差-0-5-1" class="headerlink" title="噪声方差 0.5"></a>噪声方差 0.5</h4><h5 id="M-x3D-10-2"><a href="#M-x3D-10-2" class="headerlink" title="M&#x3D;10"></a>M&#x3D;10</h5><p><img src="https://img.luxiaoxiao.work/2023/05/cf9c8296e9ac5b81b3372c171571c656.png"></p>
-<h5 id="M-x3D-180-2"><a href="#M-x3D-180-2" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/99cc4e5f34b7b627971d49a08ea6736d.png"></p>
-<h3 id="信号频率-4"><a href="#信号频率-4" class="headerlink" title="信号频率 4"></a>信号频率 4</h3><h4 id="噪声方差-0-2-1"><a href="#噪声方差-0-2-1" class="headerlink" title="噪声方差 0.2"></a>噪声方差 0.2</h4><h5 id="M-x3D-10-3"><a href="#M-x3D-10-3" class="headerlink" title="M&#x3D;10"></a>M&#x3D;10</h5><p><img src="https://img.luxiaoxiao.work/2023/05/836207b141d1c9e007d05fc5852b525e.png"></p>
-<h5 id="M-x3D-50-1"><a href="#M-x3D-50-1" class="headerlink" title="M&#x3D;50"></a>M&#x3D;50</h5><p><img src="https://img.luxiaoxiao.work/2023/05/8fa3cf7d5bfaaa35c659585e4e0ae602.png"></p>
-<h5 id="M-x3D-180-3"><a href="#M-x3D-180-3" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/ccaa44786963d6605dae538ed1eed371.png"></p>
-<h4 id="噪声方差-0-5-2"><a href="#噪声方差-0-5-2" class="headerlink" title="噪声方差 0.5"></a>噪声方差 0.5</h4><h5 id="M-x3D-30"><a href="#M-x3D-30" class="headerlink" title="M&#x3D;30"></a>M&#x3D;30</h5><p><img src="https://img.luxiaoxiao.work/2023/05/99cc4e5f34b7b627971d49a08ea6736d.png"></p>
-<h5 id="M-x3D-180-4"><a href="#M-x3D-180-4" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/cf9c8296e9ac5b81b3372c171571c656.png"></p>
-<h3 id="信号频率-8"><a href="#信号频率-8" class="headerlink" title="信号频率 8"></a>信号频率 8</h3><h4 id="噪声方差-0-1"><a href="#噪声方差-0-1" class="headerlink" title="噪声方差 0.1"></a>噪声方差 0.1</h4><h5 id="M-x3D-180-5"><a href="#M-x3D-180-5" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/ea08e0112292be4d55edeeda367b4844.png"></p>
-<h4 id="噪声方差-0-5-3"><a href="#噪声方差-0-5-3" class="headerlink" title="噪声方差 0.5"></a>噪声方差 0.5</h4><h5 id="M-x3D-180-6"><a href="#M-x3D-180-6" class="headerlink" title="M&#x3D;180"></a>M&#x3D;180</h5><p><img src="https://img.luxiaoxiao.work/2023/05/f511204eddc9dcdd9bc8c2077ad29d72.png"></p>
-<h3 id="拟合效果与条件关系"><a href="#拟合效果与条件关系" class="headerlink" title="拟合效果与条件关系"></a>拟合效果与条件关系</h3><p>多项式次数越高越容易拟合高频的信号，但是多项式次数过高容易过拟合；</p>
-<p>多项式次数越低越容易欠拟合，尤其是对于低频信号。</p>
-<p>因此需要在尽可能拟合信号的情况下降低多项式次数，从而降低噪声对于模型训练的影响。</p>
+<p>输入参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">estimator</td>
+<td align="center">估计器</td>
+</tr>
+<tr>
+<td align="center">param_grid</td>
+<td align="center">需要最优化参数的取值（详情见下）</td>
+</tr>
+<tr>
+<td align="center">scoring</td>
+<td align="center">模型评价标准</td>
+</tr>
+<tr>
+<td align="center">refit</td>
+<td align="center">使用在整个数据集上训练的最佳参数重新拟合估计器</td>
+</tr>
+<tr>
+<td align="center">cv</td>
+<td align="center">交叉验证的折数（默认 5 折）</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>param_grid</code>的形式：<ul>
+<li>列表或字典（列表中有多个字典）</li>
+<li>列表中每项为一个字典，每个字典里键名为需要优化的参数，键值为该参数的取值列表</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.luxiaoxiao.work/2023/05/9b11a3971691307d170aede14f6721e8.png" alt="SKLearn上对于scoring选值的介绍"></p>
+<p>返回值：</p>
+<p><code>GridSearchCV</code>是一个类，该函数是其构造函数，因此返回的是一个对象，要使用 GridSearch 还需要调用该类中的成员函数<code>fit()</code></p>
+<h4 id="修改参数"><a href="#修改参数" class="headerlink" title="修改参数"></a>修改参数</h4><p>实验结果：</p>
+<table>
+<thead>
+<tr>
+<th align="center">scoring</th>
+<th align="center">cv</th>
+<th align="center">Best C</th>
+<th align="center">Best kernel</th>
+<th align="center">best gamma</th>
+<th align="center">Best Train</th>
+<th align="center">Best Test</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">accuracy</td>
+<td align="center">5</td>
+<td align="center">1</td>
+<td align="center">linear</td>
+<td align="center"></td>
+<td align="center">0.98021978</td>
+<td align="center">0.96491228</td>
+</tr>
+<tr>
+<td align="center">accuracy</td>
+<td align="center">10</td>
+<td align="center">100</td>
+<td align="center">linear</td>
+<td align="center"></td>
+<td align="center">0.98468599</td>
+<td align="center">0.97368421</td>
+</tr>
+<tr>
+<td align="center">accuracy</td>
+<td align="center">15</td>
+<td align="center">0.1</td>
+<td align="center">linear</td>
+<td align="center"></td>
+<td align="center">0.98451613</td>
+<td align="center">0.97368421</td>
+</tr>
+<tr>
+<td align="center">recall</td>
+<td align="center">5</td>
+<td align="center">1</td>
+<td align="center">linear</td>
+<td align="center"></td>
+<td align="center">0.96470588</td>
+<td align="center">0.96491228</td>
+</tr>
+<tr>
+<td align="center">recall</td>
+<td align="center">10</td>
+<td align="center">10</td>
+<td align="center">rbf</td>
+<td align="center">0.1</td>
+<td align="center">0.97647059</td>
+<td align="center">0.92982456</td>
+</tr>
+<tr>
+<td align="center">recall</td>
+<td align="center">15</td>
+<td align="center">0.1</td>
+<td align="center">linear</td>
+<td align="center"></td>
+<td align="center">0.96414141</td>
+<td align="center">0.97368421</td>
+</tr>
+<tr>
+<td align="center">precision</td>
+<td align="center">5</td>
+<td align="center">0.01</td>
+<td align="center">linear</td>
+<td align="center"></td>
+<td align="center">1.00000000</td>
+<td align="center">0.95614035</td>
+</tr>
+<tr>
+<td align="center">precision</td>
+<td align="center">10</td>
+<td align="center">0.01</td>
+<td align="center">linear</td>
+<td align="center"></td>
+<td align="center">1.00000000</td>
+<td align="center">0.95614035</td>
+</tr>
+<tr>
+<td align="center">precision</td>
+<td align="center">15</td>
+<td align="center">0.001</td>
+<td align="center">linear</td>
+<td align="center"></td>
+<td align="center">1.00000000</td>
+<td align="center">0.94736842</td>
+</tr>
+<tr>
+<td align="center">f1</td>
+<td align="center">5</td>
+<td align="center">1</td>
+<td align="center">linear</td>
+<td align="center"></td>
+<td align="center">0.97284941</td>
+<td align="center">0.96491228</td>
+</tr>
+<tr>
+<td align="center">f1</td>
+<td align="center">10</td>
+<td align="center">100</td>
+<td align="center">rbf</td>
+<td align="center">0.001</td>
+<td align="center">0.97859848</td>
+<td align="center">0.97368421</td>
+</tr>
+<tr>
+<td align="center">f1</td>
+<td align="center">15</td>
+<td align="center">0.1</td>
+<td align="center">linear</td>
+<td align="center"></td>
+<td align="center">0.97802497</td>
+<td align="center">0.97368421</td>
+</tr>
+</tbody></table>
+<p>由上图可看出 10 折交叉验证比较通用。适应于大部分情况</p>
+<h3 id="带交叉验证的随机搜索函数"><a href="#带交叉验证的随机搜索函数" class="headerlink" title="带交叉验证的随机搜索函数"></a>带交叉验证的随机搜索函数</h3><h4 id="熟悉函数-1"><a href="#熟悉函数-1" class="headerlink" title="熟悉函数"></a>熟悉函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> RandomizedSearchCV</span><br><span class="line">RandomizedSearchCV(estimator=logistic,</span><br><span class="line">                   param_distributions=hyperparameters,</span><br><span class="line">                   random_state=<span class="number">1</span>,</span><br><span class="line">                   n_iter=<span class="number">100</span>,</span><br><span class="line">                   scoring=<span class="string">&#x27;precision_micro&#x27;</span>,</span><br><span class="line">                   refit=<span class="literal">True</span>,</span><br><span class="line">                   cv=<span class="number">8</span>,</span><br><span class="line">                   verbose=<span class="number">0</span>,</span><br><span class="line">                   n_jobs=-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输入参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">estimator</td>
+<td align="center">估计器</td>
+</tr>
+<tr>
+<td align="center">param_distributions</td>
+<td align="center">需要最优化参数的分布（使用 scipy.stats.distributions 里的分布）</td>
+</tr>
+<tr>
+<td align="center">scoring</td>
+<td align="center">模型评价标准</td>
+</tr>
+<tr>
+<td align="center">refit</td>
+<td align="center">使用在整个数据集上训练的最佳参数重新拟合估计器</td>
+</tr>
+<tr>
+<td align="center">cv</td>
+<td align="center">交叉验证的折数（默认 5 折）</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<p>类似于<code>GridSearchCV</code></p>
+<blockquote>
+<p>Q: 说明为什么不能使用 ‘recall’, ‘precision’, ‘f1’，而要改为’recall_micro’, ‘precision_micro’, ‘f1_micro’，但是’accuracy’不用加‘_micro’？</p>
+<p>A: 以’f1’为例，查阅 SKLearn 文档可知，默认是采用’binary’（二分类），而此时是三分类，默认设置无法使用；而’accuracy’是支持多分类的。</p>
+</blockquote>
+<p>资料来源：</p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/87209eabd6df3d86f4b5f8ffeb59bde5.png" alt="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html"></p>
+<p><img src="https://img.luxiaoxiao.work/2023/05/fdfb5f1b98e96f7c43b5f60bec197498.png" alt="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html"></p>
+<h4 id="修改参数-1"><a href="#修改参数-1" class="headerlink" title="修改参数"></a>修改参数</h4><p>以<code>scoring=&#39;precision_micro&#39;</code>、<code>cv=8</code>为例，修改<code>C</code>的分布时，可发现其有如下几个最优解：</p>
+<ul>
+<li>1.668088018810296（0~4 内）</li>
+<li>5.595344156031953（0~6 内）</li>
+<li>7.46045887470927（0~8 内）</li>
+</ul>
+<p>实验结果：</p>
+<table>
+<thead>
+<tr>
+<th>scoring</th>
+<th>cv</th>
+<th>Best C</th>
+<th>penalty</th>
+<th>Best score(train)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>accuracy</td>
+<td>5</td>
+<td>7.011113218</td>
+<td>11</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td>10</td>
+<td>7.011113218</td>
+<td>11</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>accuracy</td>
+<td>15</td>
+<td>7.283587054</td>
+<td>11</td>
+<td>0.973333333</td>
+</tr>
+<tr>
+<td>recall_micro</td>
+<td>5</td>
+<td>7.011113218</td>
+<td>11</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>recall_micro</td>
+<td>10</td>
+<td>7.011113218</td>
+<td>11</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>recall_micro</td>
+<td>15</td>
+<td>7.283587054</td>
+<td>11</td>
+<td>0.973333333</td>
+</tr>
+<tr>
+<td>precision_micro</td>
+<td>5</td>
+<td>7.011113218</td>
+<td>11</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>precision_micro</td>
+<td>10</td>
+<td>7.011113218</td>
+<td>11</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>precision_micro</td>
+<td>15</td>
+<td>7.283587054</td>
+<td>11</td>
+<td>0.973333333</td>
+</tr>
+<tr>
+<td>f1_micro</td>
+<td>5</td>
+<td>7.011113218</td>
+<td>11</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>f2_micro</td>
+<td>10</td>
+<td>7.011113218</td>
+<td>11</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>f3_micro</td>
+<td>15</td>
+<td>7.283587054</td>
+<td>11</td>
+<td>0.973333333</td>
+</tr>
+</tbody></table>
+<h2 id="嵌套交叉验证的最优参数搜索方法"><a href="#嵌套交叉验证的最优参数搜索方法" class="headerlink" title="嵌套交叉验证的最优参数搜索方法"></a>嵌套交叉验证的最优参数搜索方法</h2><h3 id="熟悉函数-2"><a href="#熟悉函数-2" class="headerlink" title="熟悉函数"></a>熟悉函数</h3><p><img src="https://img.luxiaoxiao.work/2023/05/75cd337dd741fbd709841129bed805f4.png" alt="嵌套交叉验证"></p>
+<p>如示例代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> make_pipeline</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">pipe_svc = make_pipeline(StandardScaler(),</span><br><span class="line">                         SVC(random_state=<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">param_range = [<span class="number">0.0001</span>, <span class="number">0.001</span>, <span class="number">0.01</span>, <span class="number">0.1</span>, <span class="number">1.0</span>, <span class="number">10.0</span>, <span class="number">100.0</span>, <span class="number">1000.0</span>]</span><br><span class="line"></span><br><span class="line">param_grid = [&#123;<span class="string">&#x27;svc__C&#x27;</span>: param_range,</span><br><span class="line">               <span class="string">&#x27;svc__kernel&#x27;</span>: [<span class="string">&#x27;linear&#x27;</span>]&#125;,</span><br><span class="line">              &#123;<span class="string">&#x27;svc__C&#x27;</span>: param_range,</span><br><span class="line">               <span class="string">&#x27;svc__gamma&#x27;</span>: param_range,</span><br><span class="line">               <span class="string">&#x27;svc__kernel&#x27;</span>: [<span class="string">&#x27;rbf&#x27;</span>]&#125;]</span><br><span class="line"></span><br><span class="line">gs = GridSearchCV(estimator=pipe_svc,</span><br><span class="line">                  param_grid=param_grid,</span><br><span class="line">                  scoring=<span class="string">&#x27;accuracy&#x27;</span>,</span><br><span class="line">                  cv=<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">scores = cross_val_score(gs, X_train, y_train,</span><br><span class="line">                         scoring=<span class="string">&#x27;accuracy&#x27;</span>, cv=<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;CV accuracy: %.3f +/- %.3f&#x27;</span> % (np.mean(scores),</span><br><span class="line">                                      np.std(scores)))</span><br></pre></td></tr></table></figure>
+
+<p>嵌套交叉验证过程：示例代码中先创建<code>GridSearchCV</code>对象<code>gs</code>，再使用<code>cross_val_score()</code>将<code>gs</code>作为估计器，进行交叉验证，从而实现嵌套交叉验证。</p>
+<p>在内部交叉验证中优化参数，在外部交叉验证中使用最优参数进行训练</p>
+<h3 id="修改参数-2"><a href="#修改参数-2" class="headerlink" title="修改参数"></a>修改参数</h3><p>运行时使用全部核（R7-5800H），实验结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>inner cv</th>
+<th>outer cv</th>
+<th>run time</th>
+<th>accuracy</th>
+<th>std</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>3</td>
+<td>0.512662</td>
+<td>0.969</td>
+<td>0.012</td>
+</tr>
+<tr>
+<td>3</td>
+<td>5</td>
+<td>0.835819</td>
+<td>0.98</td>
+<td>0.019</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+<td>1.244654</td>
+<td>0.982</td>
+<td>0.025</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10</td>
+<td>1.860951</td>
+<td>0.985</td>
+<td>0.022</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3</td>
+<td>0.874549</td>
+<td>0.969</td>
+<td>0.012</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>1.455379</td>
+<td>0.971</td>
+<td>0.023</td>
+</tr>
+<tr>
+<td>5</td>
+<td>7</td>
+<td>2.12064</td>
+<td>0.978</td>
+<td>0.024</td>
+</tr>
+<tr>
+<td>5</td>
+<td>10</td>
+<td>3.27914</td>
+<td>0.98</td>
+<td>0.021</td>
+</tr>
+<tr>
+<td>7</td>
+<td>3</td>
+<td>1.239511</td>
+<td>0.969</td>
+<td>0.012</td>
+</tr>
+<tr>
+<td>7</td>
+<td>5</td>
+<td>2.016805</td>
+<td>0.974</td>
+<td>0.015</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7</td>
+<td>3.094155</td>
+<td>0.974</td>
+<td>0.028</td>
+</tr>
+<tr>
+<td>7</td>
+<td>10</td>
+<td>4.624048</td>
+<td>0.978</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>10</td>
+<td>3</td>
+<td>1.791292</td>
+<td>0.976</td>
+<td>0.011</td>
+</tr>
+<tr>
+<td>10</td>
+<td>5</td>
+<td>2.894207</td>
+<td>0.974</td>
+<td>0.015</td>
+</tr>
+<tr>
+<td>10</td>
+<td>7</td>
+<td>4.346896</td>
+<td>0.98</td>
+<td>0.024</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10</td>
+<td>6.557961</td>
+<td>0.978</td>
+<td>0.02</td>
+</tr>
+</tbody></table>
+<p>从表格中可以看出：准确率和标准差大致随折数增加而增大，但当折数达到一定大小后其变化很小。</p>
+<h2 id="其他性能评估指标"><a href="#其他性能评估指标" class="headerlink" title="其他性能评估指标"></a>其他性能评估指标</h2><h3 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h3><p><img src="https://img.luxiaoxiao.work/2023/05/82fb4408b869e76d276956db639b673e.png" alt="混淆矩阵"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> confusion_matrix</span><br><span class="line">pipe_svc.fit(X_train, y_train)</span><br><span class="line">y_pred = pipe_svc.predict(X_test)</span><br><span class="line">confmat = confusion_matrix(y_true=y_test, y_pred=y_pred)</span><br></pre></td></tr></table></figure>
+
+<p>输入参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">y_true</td>
+<td align="center">目标值</td>
+</tr>
+<tr>
+<td align="center">y_pred</td>
+<td align="center">估计值</td>
+</tr>
+</tbody></table>
+<p>返回值：i 行 j 列的矩阵</p>
+<p>每格表示真实标签为第 i 类、预测标签为第 j 类的样本数</p>
+<h3 id="ROC-曲线"><a href="#ROC-曲线" class="headerlink" title="ROC 曲线"></a>ROC 曲线</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> roc_curve, auc</span><br><span class="line">fpr, tpr, thresholds = roc_curve(y_train[test],</span><br><span class="line">                                 probas[:, <span class="number">1</span>],</span><br><span class="line">                                 pos_label=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.luxiaoxiao.work/2023/05/5ec002036758bacd58d8a0450a2ca446.png" alt="实例中的ROC曲线（标准化、PCA、逻辑回归）"></p>
+<h3 id="ROC-面积"><a href="#ROC-面积" class="headerlink" title="ROC 面积"></a>ROC 面积</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> roc_curve, auc</span><br><span class="line">roc_auc = auc(fpr, tpr)</span><br></pre></td></tr></table></figure>
+
+<p>AUC（即 ROC 面积）越大，表示该分类器分类精度越好，AUC 大于 0.5 的分类器才有使用价值。</p>
+<ul>
+<li>AUC&#x3D;1：完美分类器</li>
+<li>AUC&#x3D;0.5：与随机分类相同</li>
+</ul>
 </div>
         </div>
         
@@ -429,7 +716,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://blog.luxiaoxiao.work/2023/05/03/MLExperiment1/",
+                text: "http://blog.luxiaoxiao.work/2023/05/05/MLExperiment3/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -441,9 +728,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://blog.luxiaoxiao.work/2023/05/03/MLExperiment1/";
-            const title         = "「实验一：KNN与多项式回归」";
-            const excerpt       = `WHU动机学院机器学习实验报告（一）`;
+            const hostUrl       = "http://blog.luxiaoxiao.work/2023/05/05/MLExperiment3/";
+            const title         = "「实验三：模型评估与选择（2）」";
+            const excerpt       = `WHU动机学院机器学习实验报告（二）`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -465,7 +752,7 @@
                     <a class="tag-none-link" href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" rel="tag">实验报告</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-05-04T07:06:52.104Z" itemprop="dateModified">最后编辑：2023-05-04</time>
+                    <time datetime="2023-05-05T14:47:17.547Z" itemprop="dateModified">最后编辑：2023-05-05</time>
                 </div>
             </div>
         </footer>
@@ -474,13 +761,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 致深爱你的那个我" href="/2023/04/30/video-test/">&lt; 上一篇</a>
+                <a title=" 实验二：模型评估与选择（1）" href="/2023/05/04/MLExperiment2/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" 实验二：模型评估与选择（1）" href="/2023/05/04/MLExperiment2/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -492,7 +775,7 @@
         const init = () => {
             Waline.init(Object.assign({
                 el: '#w-comments',
-                path: '/2023/05/03/MLExperiment1/',
+                path: '/2023/05/05/MLExperiment3/',
                 dark: 'html[data-theme="dark"]',
             }, JSON.parse('{"serverURL":"https://waline.luxiaoxiao.work","comment":true,"pageview":true}')));
         }
